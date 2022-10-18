@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**async+函数
+       * 返回一个Promise
+       * 1、Promise的状态跟返回值有关
+       * 若return的是非Promise，则返回的Promise状态为成功，并且Promise结果为当前return的值
+       * 若return的是Promise，则返回的Promise的状态和return的Promise状态一致，并且结果也一致
+       * 若有抛错 ,则返回的Promise状态为失败，并且Promise结果为当前抛错的值
+       * 和Promise的then函数一样
+       * */
+      async function test() {
+        return Promise.reject("1");
+      }
+      async function test1() {
+        /**
+         * await+表达式
+         * 右侧表达式一般是promise对象，也可以是其他的值
+         * 如果表达式是promise对象，await返回的是promise成功的值
+         * 如果表达式是其他值，直接将此值作为await的返回值
+         * 如果await的promise失败，就会抛出异常，需要通过try catch捕获错误
+         * await必须要和async一起使用
+         * **/
+        let p = Promise.reject("你好");
+        try {
+          let a = await p;
+        } catch (e) {
+          console.log(e);
+        }
+      }
+      console.log(test1());
+    </script>
+  </body>
+</html>

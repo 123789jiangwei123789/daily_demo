@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="./promise.js"></script>
+    <script>
+      // let p = new MyPromise((resolve, reject) => {
+      //   reject("错误");
+      // });
+      // let result = p.then((res) => {
+      //   console.log(res, "1");
+      // });
+      // console.log(result);
+      // let result1 = result.catch((err) => {
+      //   console.log(err, "22");
+      // });
+      // console.log(result1);
+      // let result2 = result1.then((res1) => {
+      //   console.log(res1, "333");
+      // });
+      // console.log(result2);
+      // let result3 = result2.catch((err) => {
+      //   console.log(err, "4444");
+      // });
+      // console.log(result3);
+
+      let p = new MyPromise((resolve, reject) => {
+        resolve("成功");
+      });
+      let result = p.then((res) => {
+        return new MyPromise((resolve, reject) => {});
+      });
+      console.log(result);
+      let result1 = result.catch((err) => {
+        console.log(err, "22");
+      });
+      console.log(result1);
+      let result2 = result1.then((res1) => {
+        console.log(res1, "333");
+      });
+      console.log(result2);
+      let result3 = result2.catch((err) => {
+        console.log(err, "4444");
+      });
+      result3.finally((res) => {
+        console.log(res, "执行了");
+      });
+      // console.log(result3);
+
+      // let p = new MyPromise((resolve, reject) => {
+      //   resolve("成功");
+      // });
+      // let result = p.then((res) => {
+      //   console.log(res, "1");
+      // });
+      // console.log(result);
+      // let result1 = result.catch((err) => {
+      //   console.log(err, "22");
+      // });
+      // console.log(result1);
+      // let result2 = result1.then((res1) => {
+      //   console.log(res1, "333");
+      // });
+      // console.log(result2);
+      // let result4 = result2.then((err) => {
+      //   console.log(err, "5555");
+      // });
+      // console.log(result4);
+      // console.log(MyPromise.reject("11"));
+
+      //   MyPromise.all([
+      //     MyPromise.resolve("on"),
+      //     MyPromise.reject("on1"),
+      //     MyPromise.resolve("on2"),
+      //   ])
+      //     .then((res) => {
+      //       console.log(res);
+      //     })
+      //     .catch((err) => {
+      //       console.log(err);
+      //     });
+
+      //   let p1 = MyPromise.resolve(
+      //     new MyPromise((resolve, reject) => {
+      //       setTimeout(() => {
+      //         resolve(22);
+      //       });
+      //     })
+      //   );
+      //   MyPromise.race([p1, MyPromise.reject("on1"), MyPromise.resolve("on2")])
+      //     .then((res) => {
+      //       console.log(res);
+      //     })
+      //     .catch((err) => {
+      //       console.log(err);
+      //     });
+
+      // let p1 = MyPromise.resolve(
+      //   new MyPromise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       resolve(22);
+      //     });
+      //   })
+      // );
+      // MyPromise.any([MyPromise.resolve("1")]).finally(() => {
+      //   console.log(1);
+      // });
+    </script>
+  </body>
+</html>
