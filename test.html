@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .parent {
+      width: 100px;
+      height: 200px;
+      background: #168bf5;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .child1 {
+      width: 100px;
+      height: 200px;
+      background: #32d19c;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1;
+    }
+    .child2 {
+      width: 100px;
+      height: 200px;
+      background: #e4c950;
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      z-index: -1;
+    }
+    .child2-1 {
+      width: 100px;
+      height: 200px;
+      background: #e45050;
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      z-index: 9999;
+    }
+    .child2-2 {
+      width: 100px;
+      height: 200px;
+      background: #db68a7;
+      position: absolute;
+      top: 80px;
+      left: 40px;
+      z-index: -9999;
+    }
+  </style>
+  </head>
+  
+  <body>
+    <div class="parent">
+      parent
+      <div class="child1">child1</div>
+      <div class="child2">
+        child2
+        <div class="child2-1">child2-1</div>
+        <div class="child2-2">child2-2</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    jsonp({ url: "http://localhost:3001/home", callbackName: "test" }).then(
+      (res) => {
+        console.log(111, res);
+      }
+    );
+    // let el = document.getElementsByClassName("test");
+    // let func = function () {
+    //   console.log("执行了");
+    // };
+    // el[0].onmousemove = throttle(func, 3000, {
+    //   leading: false,
+    // });
+    // el[0].onmousemove = throttle(func, 3000);
+    // let throttleFunc = throttle(func, 3000, {
+    //   trailing: false,
+    // });
+    // el[0].onmousemove = throttle(func, 3000, {
+    //   trailing: false,
+    // });
+    // throttleFunc.cancel();
+  </script>
+</html>
